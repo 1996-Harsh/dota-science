@@ -13129,13 +13129,66 @@ $( document ).ready(code_toggle);
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">.output_png {</span>
+<span class="s2">    display: table-cell;</span>
+<span class="s2">    text-align: center;</span>
+<span class="s2">    vertical-align: middle;</span>
+<span class="s2">}</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<style>
+.output_png {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+</style>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dota-2:--Meta-Evolution-as-Captured-by-End-of-game-Player-Stats">Dota 2:  Meta Evolution as Captured by End-of-game Player Stats<a class="anchor-link" href="#Dota-2:--Meta-Evolution-as-Captured-by-End-of-game-Player-Stats">&#182;</a></h1><h2 id="Executive-Summary">Executive Summary<a class="anchor-link" href="#Executive-Summary">&#182;</a></h2><p>Dota 2 is a multiplayer online battle arena (MOBA) game that has gained top tier popularity in E-sports. Ushered in by the success of its predecessor, Defense of the Ancients, it has grown to be a force in the gaming industry exhibited by a host of following and a historically high prize pool in the game's flagship annual tournament, <code>The International</code> (TI) .</p>
+<h1 id="DOTA-Science:--Dota-2-Meta-Evolution-as-Captured-by-End-of-game-Player-Stats">DOTA Science:  Dota 2 Meta Evolution as Captured by End-of-game Player Stats<a class="anchor-link" href="#DOTA-Science:--Dota-2-Meta-Evolution-as-Captured-by-End-of-game-Player-Stats">&#182;</a></h1><p>Prepared by: Manansala, Dorosan, Edeza, Gonzales, Licong, Marquez</p>
+<p><img src='src/dota2.jpg' width=500></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Executive-Summary">Executive Summary<a class="anchor-link" href="#Executive-Summary">&#182;</a></h2><p>Dota 2 is a multiplayer online battle arena (MOBA) game that has gained top tier popularity in E-sports. Ushered in by the success of its predecessor, Defense of the Ancients, it has grown to be a force in the gaming industry exhibited by a host of following and a historically high prize pool in the game's flagship annual tournament, <code>The International</code> (TI) .</p>
 <p>Perhaps the most appealing aspect of Dota 2 is teamwork. From the drafting stage to late-game clashes, teamwork surfaced as a unifying factor of all our investigations. Specifically, we have observed that intelligence-type support heroes held count majority on hero pick participation across all TIs. We also observed that the dependence of team strategies on players taking different roles or specializations in-game results in the distribution of end-of-game stats that resemble Poisson/rare--a consequence of the majority of support players giving way to a snowballing of one or two core heroes in a lineup.</p>
 <p>Also, we built a predictive model that can predict match outcomes at ~94% accuracy. In prediction using in-game hero items, map vision and mobility items surfaced as the most important predictors. Aegis is also among the top predictor items which we attributed to success in team fights and, consequently, secured pushing. Intuitively, we observed that Kills, Deaths, and Assists are the most important stats to predict match outcomes at high accuracy.</p>
 <p>While <code>Valve</code> certainly made efforts to refine and improve the game continuously, there is a limit to how much they can change. That limit is Dota 2's identity--as exhibited in the overall package of mechanics, graphics, and what others refer to as  "high barrier of entry."<sup><a href="https://www.joindota.com/en/news/78006-opinion-its-time-for-dota-2-to-lower-the-barrier-to-entry">[1]</a></sup> This is supported by the statistically insignificant differences in end-of-game stats from TI4 to TI8 as determine by Null Hypothesis Significant Testing. Like most E-sports games, <code>Valve</code> faces an everyday challenge of keeping Dota 2 relevant but authentic to what it was always known for, a big-brain team-strategy e-sport. Only time will tell what the outcome is to Dota 2's <i>a defense from being ancient</i> in the history of MOBA.</p>
-<h2 id="I.-Introduction">I. Introduction<a class="anchor-link" href="#I.-Introduction">&#182;</a></h2><p>The E-Sports industry has changed significantly since the early age of the internet, changed marked by staggering growth in the last decade. In fact, the number of games released<sup><a href="https://www.statista.com/statistics/552623/number-games-released-steam/">[2]</a></sup> in Steam alone in 2018 and 2019 is twice as much as the combined games released a decade ago. One game that has reached a massive global audience is <strong>Dota 2</strong>.</p>
+<h2 id="1.-Introduction">1. Introduction<a class="anchor-link" href="#1.-Introduction">&#182;</a></h2><p>The E-Sports industry has changed significantly since the early age of the internet, changed marked by staggering growth in the last decade. In fact, the number of games released<sup><a href="https://www.statista.com/statistics/552623/number-games-released-steam/">[2]</a></sup> in Steam alone in 2018 and 2019 is twice as much as the combined games released a decade ago. One game that has reached a massive global audience is <strong>Dota 2</strong>.</p>
 <p>Dota 2 has improved significantly since the release of its predecessor, <strong>Defense of the Ancients (DOTA)</strong>, in 2003. DOTA was initially a <code>mod</code> for the video game <strong>Warcraft III: Reign of Chaos</strong> and <strong>The Frozen Throne</strong>. It is a multiplayer online battle arena game wherein two opposing teams fight by defending respective central bases called <code>Ancients</code> and by destroying the opponent's base. Each team is composed of five (5) players who control individual characters called <code>heroes</code>. Throughout the years, DOTA has been a favorite in the MOBA gaming segment.</p>
 <p>DOTA's growing popularity caught the attention of <code>Valve</code>, which led to a collaboration with DOTA's original creators, who eventually gave birth to Dota 2. Valve officially released Dota 2 in July 2013 as the first standalone installment of Defense of the Ancients.</p>
 <p>Dota 2 kept the same gameplay mechanics as DOTA while enhancing outdated graphics and visual effects. These graphics, along with the game mechanics, are continuously updated through <code>patches</code>. The patches add new elements, change existing bugs, and generally keep the game "fresh." These patches allowed for flexibility in keeping the game relevant despite increasing competition in both computer and mobile MOBA games. What sets Dota 2 apart from its competitors, however, is <code>Valve</code>'s annual hosting of the prestigious yearly <code>The International</code> (TI).</p>
@@ -13146,7 +13199,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="II.-The-Objectives">II. The Objectives<a class="anchor-link" href="#II.-The-Objectives">&#182;</a></h2><p>Dota 2 has undergone many game updates since the first The International (TI1). Currently, it is now in its 7.27c patch. These updates came mostly as responses to game bugs, game imbalance, and the more compelling objective of Valve to keep Dota 2 relevant amidst increasing competition in the Multiplayer Online Battle Arena (MOBA) category.</p>
+<h2 id="2.-Problem-Statement-and-Rationale">2. Problem Statement and Rationale<a class="anchor-link" href="#2.-Problem-Statement-and-Rationale">&#182;</a></h2><p>Dota 2 has undergone many game updates since the first The International (TI1). Currently, it is now in its 7.27c patch. These updates came mostly as responses to game bugs, game imbalance, and the more compelling objective of Valve to keep Dota 2 relevant amidst increasing competition in the Multiplayer Online Battle Arena (MOBA) category.</p>
 <p>In the gaming community, updates imply changes in the meta--how the objectives in a game are achieved. In this report, we investigated how the Dota 2 meta evolved through the years using end-of-game data per match played in a TI. We focused our investigation specifically on The International 4 to 8 (TI4 to TI8) due to the availability of data in Steam's API.<sup><a href="https://steamcommunity.com/dev">[3]</a></sup></p>
 <p>The following questions direct our exploration:</p>
 <ol>
@@ -13207,7 +13260,7 @@ $( document ).ready(code_toggle);
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="III.-Data-Collection,-Description,-and-Processing">III. Data Collection, Description, and Processing<a class="anchor-link" href="#III.-Data-Collection,-Description,-and-Processing">&#182;</a></h2><p>To accomplish the above objectives, our team scraped data from Steam using its API and performed the necessary exploratory data analayses. Our scraping resulted to two two main sets of data: (1) data for analysis, and (2) data for visualization. The collected data were saved in sqlite3 with <code>dota2.sqlite3</code> as the <strong>main database</strong>. The following tables are contained in the said database:</p>
+<h2 id="3.-Data-Methodology,-Description,-and-Processing">3. Data Methodology, Description, and Processing<a class="anchor-link" href="#3.-Data-Methodology,-Description,-and-Processing">&#182;</a></h2><p>To accomplish the above objectives, our team scraped data from Steam using its API and performed the necessary exploratory data analayses. Our scraping resulted to two two main sets of data: (1) data for analysis, and (2) data for visualization. The collected data were saved in sqlite3 with <code>dota2.sqlite3</code> as the <strong>main database</strong>. The following tables are contained in the said database:</p>
 <ol>
 <li>leagues and tournaments</li>
 <li>heroes</li>
@@ -13221,12 +13274,18 @@ of data prior to analyses.</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1.-Data-Methodology-and-Workflow">3.1. Data Methodology and Workflow<a class="anchor-link" href="#3.1.-Data-Methodology-and-Workflow">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;workflow.png&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;src/workflow.png&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13271,12 +13330,18 @@ of data prior to analyses.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.-Data-Collection">3.2. Data Collection<a class="anchor-link" href="#3.2.-Data-Collection">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">db_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">db_path</span> <span class="o">=</span> <span class="s1">&#39;src/&#39;</span>
 <span class="n">heroes_db</span> <span class="o">=</span> <span class="s1">&#39;dota2_v1.db&#39;</span>
 <span class="n">dota2db</span> <span class="o">=</span> <span class="s1">&#39;dota2.sqlite3&#39;</span>
 </pre></div>
@@ -13334,47 +13399,25 @@ of data prior to analyses.</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Tables-contained-in-the-dota2.sqlite3-database">Tables contained in the <code>dota2.sqlite3</code> database<a class="anchor-link" href="#Tables-contained-in-the-dota2.sqlite3-database">&#182;</a></h4>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span> <span class="o">+</span> <span class="n">dota2db</span><span class="p">)</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">();</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[(&#39;heroes&#39;,),
- (&#39;items&#39;,),
- (&#39;leagues&#39;,),
- (&#39;matches&#39;,),
- (&#39;match_players&#39;,),
- (&#39;picks_bans&#39;,),
- (&#39;match_details&#39;,)]</pre>
 </div>
-
-</div>
-
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.2.1.-Leagues-dataframe">3.2.1. Leagues dataframe<a class="anchor-link" href="#3.2.1.-Leagues-dataframe">&#182;</a></h5>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13472,6 +13515,12 @@ of data prior to analyses.</p>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.2.2.-Matches-dataframe">3.2.2. Matches dataframe<a class="anchor-link" href="#3.2.2.-Matches-dataframe">&#182;</a></h5>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13593,6 +13642,12 @@ of data prior to analyses.</p>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.3.3.-Match-details-dataframe">3.3.3. Match details dataframe<a class="anchor-link" href="#3.3.3.-Match-details-dataframe">&#182;</a></h5>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13788,6 +13843,212 @@ of data prior to analyses.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.3.4.-Match-players-dataframe">3.3.4. Match players dataframe<a class="anchor-link" href="#3.3.4.-Match-players-dataframe">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">match_players</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM match_players&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">match_players</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>account_id</th>
+      <th>player_slot</th>
+      <th>hero_id</th>
+      <th>item_0</th>
+      <th>item_1</th>
+      <th>item_2</th>
+      <th>item_3</th>
+      <th>item_4</th>
+      <th>item_5</th>
+      <th>backpack_0</th>
+      <th>...</th>
+      <th>deaths</th>
+      <th>assists</th>
+      <th>leaver_status</th>
+      <th>last_hits</th>
+      <th>denies</th>
+      <th>gold_per_min</th>
+      <th>xp_per_min</th>
+      <th>level</th>
+      <th>match_id</th>
+      <th>additional_units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>82327674</td>
+      <td>0</td>
+      <td>90</td>
+      <td>214</td>
+      <td>46</td>
+      <td>61</td>
+      <td>42</td>
+      <td>24</td>
+      <td>102</td>
+      <td>0</td>
+      <td>...</td>
+      <td>2</td>
+      <td>21</td>
+      <td>0</td>
+      <td>123</td>
+      <td>0</td>
+      <td>241</td>
+      <td>281</td>
+      <td>17</td>
+      <td>37633163</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>88585077</td>
+      <td>1</td>
+      <td>46</td>
+      <td>147</td>
+      <td>0</td>
+      <td>46</td>
+      <td>1</td>
+      <td>50</td>
+      <td>141</td>
+      <td>0</td>
+      <td>...</td>
+      <td>6</td>
+      <td>17</td>
+      <td>0</td>
+      <td>254</td>
+      <td>16</td>
+      <td>453</td>
+      <td>493</td>
+      <td>23</td>
+      <td>37633163</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>90137663</td>
+      <td>2</td>
+      <td>89</td>
+      <td>196</td>
+      <td>147</td>
+      <td>63</td>
+      <td>46</td>
+      <td>114</td>
+      <td>123</td>
+      <td>0</td>
+      <td>...</td>
+      <td>5</td>
+      <td>15</td>
+      <td>0</td>
+      <td>418</td>
+      <td>7</td>
+      <td>526</td>
+      <td>556</td>
+      <td>24</td>
+      <td>37633163</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>90045009</td>
+      <td>3</td>
+      <td>55</td>
+      <td>96</td>
+      <td>119</td>
+      <td>214</td>
+      <td>79</td>
+      <td>90</td>
+      <td>46</td>
+      <td>0</td>
+      <td>...</td>
+      <td>2</td>
+      <td>17</td>
+      <td>0</td>
+      <td>279</td>
+      <td>3</td>
+      <td>406</td>
+      <td>531</td>
+      <td>24</td>
+      <td>37633163</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>88553213</td>
+      <td>4</td>
+      <td>29</td>
+      <td>180</td>
+      <td>36</td>
+      <td>1</td>
+      <td>110</td>
+      <td>30</td>
+      <td>37</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>24</td>
+      <td>0</td>
+      <td>103</td>
+      <td>0</td>
+      <td>271</td>
+      <td>365</td>
+      <td>20</td>
+      <td>37633163</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.3.5.-Pick-Bans-Dataframe">3.3.5. Pick Bans Dataframe<a class="anchor-link" href="#3.3.5.-Pick-Bans-Dataframe">&#182;</a></h5>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -13885,25 +14146,19 @@ of data prior to analyses.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.3.6.-Heroes-dataframe">3.3.6. Heroes dataframe<a class="anchor-link" href="#3.3.6.-Heroes-dataframe">&#182;</a></h5>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">heroes</span><span class="p">,</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">hero_id</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heroes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM heroes&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">heroes_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM heroes&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
 <span class="n">df_heroes</span><span class="p">[</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_heroes</span><span class="p">[</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="n">df_heroes</span><span class="p">[</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_heroes</span><span class="p">[</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">df_heroes</span><span class="p">[</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_heroes</span><span class="p">[</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;nercolyte&#39;</span><span class="p">,</span> <span class="s1">&#39;necrolyte&#39;</span><span class="p">)</span>
@@ -14004,6 +14259,115 @@ of data prior to analyses.</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="3.3.7.-Items-dataframe">3.3.7. Items dataframe<a class="anchor-link" href="#3.3.7.-Items-dataframe">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dota_items</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * from items&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
+<span class="n">dota_items</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>cost</th>
+      <th>secret_shop</th>
+      <th>side_shop</th>
+      <th>recipe</th>
+      <th>item_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>blink</td>
+      <td>2250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>blades of attack</td>
+      <td>450</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>broadsword</td>
+      <td>1000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chainmail</td>
+      <td>550</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>claymore</td>
+      <td>1400</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -14011,19 +14375,7 @@ of data prior to analyses.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">heroes_deets_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">heroes_df</span><span class="p">,</span> <span class="n">df_heroes</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> 
                            <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Hero Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heroes_deets_df</span> <span class="o">=</span> <span class="n">heroes_deets_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">heroes_deets_df</span> <span class="o">=</span> <span class="n">heroes_deets_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14038,8 +14390,7 @@ of data prior to analyses.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">main_stats</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">heroes_deets_df</span><span class="p">[</span><span class="n">heroes_deets_df</span><span class="o">.</span><span class="n">hero_id</span> <span class="o">==</span> <span class="n">h_id</span><span class="p">][</span><span class="s1">&#39;Hero Type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">h_id</span> <span class="ow">in</span> <span class="n">picks_bans_df</span><span class="o">.</span><span class="n">hero_id</span>
-<span class="p">]</span>
+    <span class="k">for</span> <span class="n">h_id</span> <span class="ow">in</span> <span class="n">picks_bans_df</span><span class="o">.</span><span class="n">hero_id</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -14062,7 +14413,7 @@ of data prior to analyses.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="IV.-Exploratory-Data-Analysis">IV. Exploratory Data Analysis<a class="anchor-link" href="#IV.-Exploratory-Data-Analysis">&#182;</a></h2><p>Our analyses to understand the changes in Dota 2 meta according to the previously stated objectives are answered in the following exploratory data analysis sections:</p>
+<h2 id="4.-Exploratory-Data-Analysis">4. Exploratory Data Analysis<a class="anchor-link" href="#4.-Exploratory-Data-Analysis">&#182;</a></h2><p>Our analyses to understand the changes in Dota 2 meta according to the previously stated objectives are answered in the following exploratory data analysis sections:</p>
 
 <pre><code>A. `The International` Hero Selection: Analyzed by Hero's Primary Attribute
 
@@ -14075,7 +14426,7 @@ C. End-of-game Stats' Statistical Significance to TI Evolution</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="A.-The-International-Hero-Selection:-Analyzed-by-Hero's-Primary-Attribute">A. <code>The International</code> Hero Selection: Analyzed by Hero's Primary Attribute<a class="anchor-link" href="#A.-The-International-Hero-Selection:-Analyzed-by-Hero's-Primary-Attribute">&#182;</a></h3>
+<h3 id="4.1.-The-International-Hero-Selection:-Analyzed-by-Hero's-Primary-Attribute">4.1. <code>The International</code> Hero Selection: Analyzed by Hero's Primary Attribute<a class="anchor-link" href="#4.1.-The-International-Hero-Selection:-Analyzed-by-Hero's-Primary-Attribute">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14116,7 +14467,7 @@ C. End-of-game Stats' Statistical Significance to TI Evolution</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li>We can observe the for TI4 to TI8, Intelligence-type heroes had the highest overall participation in picks and bans. This observation is supported by the fact that Intelligence-typed heroes bring an abundance of crowd-control and burst damage skills that are crucial in team fights.</li>
 <li>Also, the usual five-man team is composed of two support heroes, an offlaner, a mid-carry hero, and a safelane carry hero. Supports are usually intelligence heroes which already tips the hero counts to this primary attribute. In addition, there are quite a few mid-carry heroes which drives the count even higher. Some of these int-type mid favorites are <code>Tinker</code>, <code>Invoker</code>, and <code>Queen of Pain</code>.</li>
 </ul>
@@ -14130,42 +14481,7 @@ C. End-of-game Stats' Statistical Significance to TI Evolution</code></pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">matches_by_league</span> <span class="o">=</span> <span class="n">matches_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;league_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">match_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">matches_by_league</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>league_id
-600     [683689782, 683782650, 683949082, 684017244, 6...
-2733    [1697618202, 1697676707, 1697737102, 169781823...
-4664    [2569415435, 2569470828, 2569531910, 256961090...
-4768    [2460470597, 2460368035, 2460284429, 246013142...
-5401    [3372622939, 3372676225, 3372726385, 337226970...
-Name: match_id, dtype: object</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">picks_df</span> <span class="o">=</span> <span class="n">picks_bans_df</span><span class="p">[</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">is_pick</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">picks_df</span> <span class="o">=</span> <span class="n">picks_bans_df</span><span class="p">[</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">is_pick</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">bans_df</span> <span class="o">=</span> <span class="n">picks_bans_df</span><span class="p">[</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">is_pick</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
@@ -14190,8 +14506,8 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Hero-Pick-Ban-Participations">Hero Pick-Ban Participations<a class="anchor-link" href="#Hero-Pick-Ban-Participations">&#182;</a></h3><p>We further looked into hero participation by looking into picks and bans as discussed below. We sorted the data set into different TIs in order to observe any changes on the counts for each primary attribute. Observations were made for both Picks and Bans, a stage in the beginning of a match where teams take turns in picking and banning heroes.</p>
-<h4 id="Hero-pick-participation-by-main-attribute-per-TI">Hero pick participation by main attribute per TI<a class="anchor-link" href="#Hero-pick-participation-by-main-attribute-per-TI">&#182;</a></h4>
+<h3 id="4.2.-Hero-Pick-Ban-Participations">4.2. Hero Pick-Ban Participations<a class="anchor-link" href="#4.2.-Hero-Pick-Ban-Participations">&#182;</a></h3><p>We further looked into hero participation by looking into picks and bans as discussed below. We sorted the data set into different TIs in order to observe any changes on the counts for each primary attribute. Observations were made for both Picks and Bans, a stage in the beginning of a match where teams take turns in picking and banning heroes.</p>
+<h4 id="4.2.1.-Hero-pick-participation-by-main-attribute-per-TI">4.2.1. Hero pick participation by main attribute per TI<a class="anchor-link" href="#4.2.1.-Hero-pick-participation-by-main-attribute-per-TI">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14242,7 +14558,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li>We can observe from the plots above that TI4 had relatively fewer games brought by the smaller tournamet format at that time.</li>
 <li>Although the plots are still consistent in showing int-type heroes to comprise the majority of picks, we can observe an increase in agi-type picks during TI6 and TI8. These increases are attributed to the popularity of in type scouts, <code>Riki</code> and <code>Bounty Hunter</code>. <code>Monkey King</code> also became part in of the Dota 2 meta in TI8 as one of these flexible agi-type scouts. </li>
 </ul>
@@ -14252,7 +14568,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Hero-ban-participation-by-main-attribute-per-TI">Hero ban participation by main attribute per TI<a class="anchor-link" href="#Hero-ban-participation-by-main-attribute-per-TI">&#182;</a></h4>
+<h4 id="4.2.2.-Hero-ban-participation-by-main-attribute-per-TI">4.2.2. Hero ban participation by main attribute per TI<a class="anchor-link" href="#4.2.2.-Hero-ban-participation-by-main-attribute-per-TI">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14303,7 +14619,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li>We can observe that for TI5 and TI6, agility heroes are banned the most. These can be explained by tendency of these heroes to dominate the game and secure wins provided that they get good support in the games early stages.</li>
 <li>Also, we can observe that in TI7 and TI8, int-heroes get band the most. TIs where teams with "all star" player line-ups like <code>Team Liquid</code> can snowball with mid-cores such as <code>Miracle</code>'s <code>Invoker</code>.</li>
 </ul>
@@ -14333,19 +14649,7 @@ Name: match_id, dtype: object</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">picks_bans_df</span><span class="p">[</span><span class="s1">&#39;hero_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heroes_names</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">picks_df</span> <span class="o">=</span> <span class="n">picks_bans_df</span><span class="p">[</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">is_pick</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">picks_df</span> <span class="o">=</span> <span class="n">picks_bans_df</span><span class="p">[</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">is_pick</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">bans_df</span> <span class="o">=</span> <span class="n">picks_bans_df</span><span class="p">[</span><span class="n">picks_bans_df</span><span class="o">.</span><span class="n">is_pick</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
@@ -14356,8 +14660,8 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="A-Look-Into-First-Picks">A Look Into First Picks<a class="anchor-link" href="#A-Look-Into-First-Picks">&#182;</a></h3><p>In the pick-ban stage, teams already battle it out by trying to pick the heroes which best fits their chosen strategy without revealing that strategy to their opponents. It is also crucial that teams are able to read their opponent's plan based on the manner of how heroes are being picked or banned. In this early mind game in the match, it would be worth looking into how teams choose their first picks.</p>
-<h4 id="First-pick-heroes'-main-attribute-per-TI">First pick heroes' main attribute per TI<a class="anchor-link" href="#First-pick-heroes'-main-attribute-per-TI">&#182;</a></h4>
+<h3 id="4.3.-A-Look-Into-First-Picks">4.3. A Look Into First Picks<a class="anchor-link" href="#4.3.-A-Look-Into-First-Picks">&#182;</a></h3><p>In the pick-ban stage, teams already battle it out by trying to pick the heroes which best fits their chosen strategy without revealing that strategy to their opponents. It is also crucial that teams are able to read their opponent's plan based on the manner of how heroes are being picked or banned. In this early mind game in the match, it would be worth looking into how teams choose their first picks.</p>
+<h4 id="4.3.1.-First-pick-heroes'-main-attribute-per-TI">4.3.1. First pick heroes' main attribute per TI<a class="anchor-link" href="#4.3.1.-First-pick-heroes'-main-attribute-per-TI">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14389,10 +14693,28 @@ Name: match_id, dtype: object</pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABIQAAADSCAYAAAA7ShvPAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAc30lEQVR4nO3de9Qkd1kn8O9DEhQMcsuAScgyuAQ0IMQ4YiCCceGIIBo8QDSoBEQjihcQBGRXmQOiwAnossstIjcXA2HRA4tBwUAWE65JFgIBgRwSIBBgwiUkAsGEZ//oGmgm7+S99Tvd0/X5nNOnu6uqq55f1e/5vTNPV1VXdwcAAACA8bjRvAMAAAAAYN9SEAIAAAAYGQUhAAAAgJFREAIAAAAYGQUhAAAAgJFREAIAAAAYGQUhAAAAgJFREBpU1c6q+l/zjmORVNWvVNVb9sF2XlFVf7bV22H/JDevT26yCOTm9clNFoHcvD65ySKQm9cnN+dvNAWhqrp66vGtqvr61Ptf2aJtrjnpq+qRVXXOVsSxxu1vr6quqgN3T+vuV3f3z8wrpmlVdWxVvbWqvlRVu6rqdVV16NT8qqpnV9UXh8dzqqqm5p9WVR8djv0jb2A7b9tzP7C15Oaq2x9tbg77/ro9+sjx+6514yY3V93+aHNzmP+DVfWmqrqqqq6oqufso6aNntxcdfujzc2qevEe/eOaqrpqHzZv1OTmqtsfc25WVf1ZVX2mqq6sqrOr6i77sHl7NZqCUHcfvPuR5FNJfn5q2qvnHd9m1fIXMG6Z5LQk25PcPslVSV4+Nf+UJA9Ocvckd0vyoCS/NTX/A0l+J8kFe9vAMFAv+35cOHJzv7fVufmu6T7S3WfPNHr2Sm7u97YsN6vqxknemuRtSX4gye2S+NZ7H5Gb+70ty83ufswe/eP0JK/bgjawArm539vKf9M+LMmvJ7l3klsleVeSv51p9Bs0moLQGt24ql41fNt1UVXt2D2jqg6rqtcP1cJLqur317vyoSL6mKr6eFV9uapeMFQLfzjJi5Pcc6ggf2VY/nuq6tSq+lRVfX6o+t9kmHd8VV1WVU+uqs8lefnUtCdU1Req6vKqetTU9n+uqv5fVX21qj5dVTunwnvH8PyVIYZ77llFrqp7VdX7hqrm+6rqXlPzzq6qZ1TVucP+e0tVHTI1/3VV9bnhs+9Yb0W0u9/c3a/r7q9299eS/M8kx00tcnKS53b3Zd39mSTPTfLIqc+/oLvPSvKNvRybmyd5WpInrScu9hm5OdLcZOHJzXHm5iOTfLa7n9fd/97d3+juC9cTH1tObo4zN7+tqr4vyUOSvHI98bHl5OY4c/MOSc7p7k9093WZfIly1Hri2yoKQt/tF5K8Jsktkrwxk06QqrpRkv+TSdXv8CT3TfK4qrr/BrbxoCQ/nkll8cQk9+/ujyR5TL7zTfgthmWfneROSY5Ocsdh2386ta4fyKTCePtMKpa7p918WPbRSV5QVbcc5v17kkcM7fu5JL9dVQ8e5t1neL7FEMO7poOuqlsl+cckz09y6yTPS/KPVXXrqcUenuRRSW6T5MZJnjg1781JjhzmXZBks1Xy+yS5aOr9XTI5Prt9YJi2Vn+e5EVJPrfJuNgacnO8ufmjNbkc5WNV9Se1/N9O7W/k5jhz89gkl1bVm4f8PLuqfmST8TFbcnOcuTntIUl25Tv/CWcxyM1x5uZrktyxqu5UVQdlUlz6p03GNxMKQt/tnO4+c6ja/W0mSZRMEmpbdz+9u7/Z3Z9I8tdJfnkD23hWd3+luz+V5O2ZJN/1VFUl+c0kj+/uL3X3VZkULaa3+a0kT+vua7r768O0/0jy9O7+j+4+M8nVSe6cJN19dnd/sLu/NXyTd3qSn1pj3D+X5OPd/bfdfW13n57k35L8/NQyL+/ujw2xnDHdtu5+WXdf1d3XJNmZ5O41OStn3arqbpkMVH80NfngJFdOvb8yycHDflxtfTsyqf7+j43Ewz4hN/duaXMzk3/E3jWTP+wPSXLSHutm/uTm3i1zbt4uk/36/CSHZfIP+DfU5FIyFoPc3Ltlzs1pJyd5VXf3RmJjy8jNvVvm3Lw8yb8m+WiSr2dyCdnjNxLbrPmm9btNnx3ytSTfO3wbffskh+0+tW5wQCYHdbPbOHgvy21LctMk50/1sRq2u9uu7t7zlLQvdve1K22jqn4iybMy+Q/WjZN8T9Z+XfFhST65x7RPZlIZ3m3FtlXVAUmemUnH35bJwJIkh+S7k2pVVXXHTKq/f9Dd0/v/6iTfP/X++5NcvdofwaEa/8Jhfdeu/28t+4jc3LulzM0kGf4xtNsHq+rpmfxh/ov1xMaWkpt7t7S5mck/Zs/p7jcP2zg1yX9L8sP57m9PmR+5uXfLnJu7131EJv8J/831xMQ+ITf3bplz82mZFP2OGNrwq0neVlV36cnlaXPjDKG1+XSSS7r7FlOPm3X3A2e4jT070hWZ/IPrLlPbvHlPblK2t8+s5u8yOTXxiO6+eSbXke7O/tXW9dlMBqpp/ynJZ9aw3YcnOSHJ/TI5vXD7MH1d1Zequn2Sf0nyjO7e8yZcF+U7FfYMry/K6r4/yY4kr63JtbHvG6ZfVlX3Xk98zIXcXN7cXEmvNzbmRm4ud25emPXvSxaD3Fzu3NztEUneuccXKyw2ubncuXn3JK/tyf2Hru3uV2RyE+u530dIQWht3pvkqzW5odZNquqAqrprVf34DLfx+SS32326dXd/K5PTBP+yqm6TJFV1+AavI93tZkm+1N3fqKp7ZJI4u+3KpJL6g3v57JlJ7lRVD6+qA6vqlzLpwG9a43avSfLFTKrQf77ewKvq8Ex+zeQF3f3iFRZ5VZI/HPbRYUmekOQVU5+/cVV9byaDwkFV9b3D2UFXZlKNPnp47B50fyzJe9YbJ/uc3Fze3ExVPaCqbju8/qEkf5LkDeuNkbmQm0ucm5ncDPPYqrrf8K3s4zL5j8VH1hsn+5zcXO7c3O0R059hvyA3lzs335fkYVV126q6UVX9WpKDkly83jhnTUFoDXpyjefPZ1IwuCSTf/S8NJPq46y8LZMK4+eq6oph2pMz6STvrqqvZlKtvPMmtvE7SZ5eVVdlck3kGbtnDKeqPTPJuVX1lao6dvqD3f3FTG5Q9oRMEu1JSR7U3Vdkda/K5HS/zyT5cJJ3byD238hk8HhaTe5Kf3VVXT01/yWZ3Ijtg0k+lMn9DF4yNf8tmVTA75XJzwl+Pcl9euJzux+ZDFRJ8vnu/uYG4mQfkpvLm5vDvPsmubCq/j2TfyT8fTbwB559T24ud25290czOd39xUm+nMm3sr/g7+bik5vLnZtJUlX3zOQ+X35ufj8iN5c+N5+dySXV70/ylUzuH/SQ7p6+RHAuah2XowIAAACwBJwhBAAAADAyCkKbVFVvnj6lbOrx1HnHtr+pqqfuZV++ed6xsf+Rm7MjN5kluTk7cpNZkpuzIzeZJbk5O3Lz+lwyBgAAADAyzhACAAAAGJkD5x1AkhxyyCG9ffv2eYcBc3P++edf0d3b5h3HnuQmYyc3YfEsal4mcpNxk5uwmG4oNxeiILR9+/acd9558w4D5qaqPjnvGFYiNxk7uQmLZ1HzMpGbjJvchMV0Q7npkjEAAACAkVEQAgAAABgZBSEAAACAkVEQAgAAABgZBSEAAACAkVmIXxkDAIBldeITL5h3CDN1xqnHzDsEAGbAGUIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI7NqQaiqjqiqt1fVR6rqoqr6g2H6rarqrVX18eH5lsP0qqrnV9XFVXVhVfkZAgAAAIAFspYzhK5N8oTu/uEkxyZ5bFUdleQpSc7q7iOTnDW8T5IHJDlyeJyS5EUzjxoAAACADVu1INTdl3f3BcPrq5J8JMnhSU5I8sphsVcmefDw+oQkr+qJdye5RVUdOvPIAQAAANiQdd1DqKq2J/nRJO9JctvuvjyZFI2S3GZY7PAkn5762GXDNAAAAAAWwJoLQlV1cJLXJ3lcd3/1hhZdYVqvsL5Tquq8qjpv165daw0D2GJyExaT3ITFJDdhMclNWN2aCkJVdVAmxaBXd/ffD5M/v/tSsOH5C8P0y5IcMfXx2yX57J7r7O7TuntHd+/Ytm3bRuMHZkxuwmKSm7CY5CYsJrkJq1vLr4xVkr9J8pHuft7UrDcmOXl4fXKSN0xNf8Twa2PHJrly96VlAAAAAMzfgWtY5rgkv5bkg1X1/mHaU5M8K8kZVfXoJJ9K8rBh3plJHpjk4iRfS/KomUYMAAAAwKasWhDq7nOy8n2BkuS+KyzfSR67ybgAAAAA2CLr+pUxAAAAAPZ/CkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI3PgvAMAAACAfe3EJ14w7xBm6oxTj5l3COxnnCEEAAAAMDLOEAI2ZJm+UfFtCgAAMDbOEAIAAAAYGQUhAAAAgJFREAIAAAAYGQUhAAAAgJFREAIAAAAYGQUhAAAAgJFREAIAAAAYmVULQlX1sqr6QlV9aGrazqr6TFW9f3g8cGreH1fVxVX10aq6/1YFDgAAAMDGrOUMoVck+dkVpv9ldx89PM5Mkqo6KskvJ7nL8JkXVtUBswoWAAAAgM1btSDU3e9I8qU1ru+EJK/p7mu6+5IkFye5xybiAwAAAGDGNnMPod+tqguHS8puOUw7PMmnp5a5bJh2PVV1SlWdV1Xn7dq1axNhALMkN2ExyU1YTHITFpPchNUduMHPvSjJM5L08PzcJL+epFZYtldaQXefluS0JNmxY8eKywD7ntyExbSW3Lz0OXfYpzFtte1PumTeIcCq/N2ExSQ3YXUbOkOouz/f3dd197eS/HW+c1nYZUmOmFr0dkk+u7kQAQAAAJilDZ0hVFWHdvflw9tfTLL7F8jemOTvqup5SQ5LcmSS9246SgCANThu50nzDmFmzt15+rxDAACW2KoFoao6PcnxSQ6pqsuSPC3J8VV1dCaXg12a5LeSpLsvqqozknw4ybVJHtvd121N6AAAAABsxKoFoe5e6au2v7mB5Z+Z5JmbCQoAAACArbOZXxkDAAAAYD+kIAQAAAAwMgpCAAAAACOjIAQAAAAwMhv62XkAABbPiU+8YN4hzMwZpx4z7xAAYKk5QwgAAABgZBSEAAAAAEZGQQgAAABgZNxDCAAA2DKXPucO8w5hprY/6ZJ5hwAwE84QAgAAABgZZwgBAADAyBy386R5hzBT5+48fd4h7HcUhAA2YJlOf3fqOwAAjI9LxgAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGZtWCUFW9rKq+UFUfmpp2q6p6a1V9fHi+5TC9qur5VXVxVV1YVcdsZfAAAAAArN9azhB6RZKf3WPaU5Kc1d1HJjlreJ8kD0hy5PA4JcmLZhMmAAAAALNy4GoLdPc7qmr7HpNPSHL88PqVSc5O8uRh+qu6u5O8u6puUVWHdvflGw3w0ufcYaMfXTjbn3TJvEMAAAAAWL0gtBe33V3k6e7Lq+o2w/TDk3x6arnLhmkbLggBAAAAzNIynXySbOwElFnfVLpWmNYrLlh1SlWdV1Xn7dq1a8ZhABslN2ExyU1YTHITFpPchNVttCD0+ao6NEmG5y8M0y9LcsTUcrdL8tmVVtDdp3X3ju7esW3btg2GAcya3ITFJDdhMclNWExyE1a30YLQG5OcPLw+OckbpqY/Yvi1sWOTXLmZ+wcBAAAAMHur3kOoqk7P5AbSh1TVZUmeluRZSc6oqkcn+VSShw2Ln5nkgUkuTvK1JI/agpgBmLPjdp407xBm5tydp887BAAA2OfW8itje/tX/31XWLaTPHazQQEAAACwdWZ9U2kAAAAAFtxGf3aefeTEJ14w7xBm5oxTj5l3CAAAAECcIQQAAAAwOgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACNz4LwDAAAAWGbH7Txp3iHMzLk7T593CMCMOEMIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQUhAAAAABGRkEIAAAAYGQO3MyHq+rSJFcluS7Jtd29o6puleS1SbYnuTTJid395c2FCQAAAMCszOIMoZ/u7qO7e8fw/ilJzuruI5OcNbwHAAAAYEFsxSVjJyR55fD6lUkevAXbAAAAAGCDNlsQ6iRvqarzq+qUYdptu/vyJBmeb7PSB6vqlKo6r6rO27Vr1ybDAGZFbsJikpuwmOQmLCa5CavbbEHouO4+JskDkjy2qu6z1g9292ndvaO7d2zbtm2TYQCzIjdhMclNWExyExaT3ITVbaog1N2fHZ6/kOQfktwjyeer6tAkGZ6/sNkgAQAAAJidDReEqur7qupmu18n+ZkkH0ryxiQnD4udnOQNmw0SAAAAgNnZzM/O3zbJP1TV7vX8XXf/U1W9L8kZVfXoJJ9K8rDNhwkAAADArGy4INTdn0hy9xWmfzHJfTcTFAAAAABbZyt+dh4AAACABaYgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI6MgBAAAADAyCkIAAAAAI3PgvAOAG3LczpPmHcLMnLvz9HmHAAAAAEmcIQQAAAAwOgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMltWEKqqn62qj1bVxVX1lK3aDgAAAADrsyUFoao6IMkLkjwgyVFJTqqqo7ZiWwAAAACsz1adIXSPJBd39ye6+5tJXpPkhC3aFgAAAADrsFUFocOTfHrq/WXDNAAAAADmrLp79iuteliS+3f3bwzvfy3JPbr796aWOSXJKcPbOyf56MwDWbtDklwxx+3P29jbn8x/H9y+u7fNcfvfJjcXivbPv/1yc2WLcGzmSfv9zfw2ublQtF9ufpvcXCjav6C5uVUFoXsm2dnd9x/e/3GSdPdfzHxjM1BV53X3jnnHMS9jb39iHyyqsR8X7R93+xfZ2I+N9o+7/Yts7MdG+8fd/kU29mOj/Yvb/q26ZOx9SY6sqjtU1Y2T/HKSN27RtgAAAABYhwO3YqXdfW1V/W6Sf05yQJKXdfdFW7EtAAAAANZnSwpCSdLdZyY5c6vWP2OnzTuAORt7+xP7YFGN/bhoP4tq7MdG+1lUYz822s+iGvux0f4FtSX3EAIAAABgcW3VPYQAAAAAWFD7ZUGoqv5rVV1UVRdW1fur6ieq6nFVddN9tP2nTr3eXlUfmvH6r17DMmtqb1WdXVU7hteXVtUhw+t3bj7SxVNVv1hVXVU/tIZlX1pVRw2vr7dvhmP78K2NeP+ib96wZR+bNkNuzpe+ubJl6ZfG5sXl2NwwY9PeLcv4tKjk5saMpV+OaWza7wpCNflJ+wclOaa775bkfkk+neRxSVY8QFV1wIzDeOrqi2y5vbZ3Lbr7XjOMZZGclOScTH7Z7gZ1929094dXmL5732xPspCD1IIbZd80Nq1Kbs6JvnmDxtQvRzk27ydGeWyMTasa0/i0qEaZm6tY+n45trFpvysIJTk0yRXdfU2SdPcVSR6a5LAkb6+qtyeTqm9VPb2q3pPknlX1Y1X1f6vq/Kr656o6dFju7Kp6dlW9t6o+VlX3HqbftKrOGKqCr62q91TVjqp6VpKbDJXCVw8xHVBVfz1UEd9SVTeZRUOr6vghvv9dVf9WVa+uid9fob0/U1XvqqoLqup1VXXwKuu+eni+UVW9cIj9TVV1ZlU9dJi33n12QFWdWlUfHPbb793QemZtaPNxSR6dYZBapX3fruavtG+SPCvJvYdj/fiq+teqOnpquXOr6m5b0ZZFp2+uaDRj03rJzbnTN1ewjP2yjM0Ly7FZkbFpL2oJx6dFJTfXta/G0i/HNTZ19371SHJwkvcn+ViSFyb5qWH6pUkOmVquk5w4vD4oyTuTbBve/1KSlw2vz07y3OH1A5P8y/D6iUleMry+a5Jrk+wY3l89tZ3tw7yjh/dnJPnVTbbx6uH5+CRXJrldJsW7dyX5yT3bm+SQJO9I8n3D+ycn+dOp9u1Y4TO7t/HQTH4N7kZJfiDJl4dpG9lnv53k9UkOHN7f6obWswV941eT/M3w+p1Jjtlb+9a4b45P8qap9Z+c5K+G13dKct6882FfP/TNcY9Nm9g3cnOOD31z+ftljM0L+3BsjE0b3DdLMz4t6iNyU7/ceztHNTZt2c/Ob5XuvrqqfizJvZP8dJLXVtVTVlj0ukySJUnunMlOfmtVJckBSS6fWvbvh+fzM9nhSfKTSf77sM0PVdWFNxDWJd39/hXWMQvv7e7LkqSq3j+s+5w9ljk2yVFJzh3ad+NMBrO1+Mkkr+vubyX53O6KZza2z+6X5MXdfW2SdPeXququq6xnlk5K8lfD69cM7w/Kyu3biNcl+ZOq+qMkv57kFZtY1zLQN6eMcGxaD7k5R/rmXi1rvzQ2Ly7HZoqx6QYt6/i0qOTm2oyiX45tbNrvCkJJ0t3XZVJpO7uqPphJNXFP3xiWS5JKclF333Mvq7xmeL4u39kntY6Qrpl6fV2SWZ5euue6VzpmleSt3X3SBta/t3ZudJ/1OtczE1V16yT/Jcldq6ozScJO8g+z2kZ3f62q3prkhCQnJrneKZAjo2/uYWRj05rIzcWgb363Je+XxubF5djswdh0fUs+Pi0qubmKsfXLMY1N+909hKrqzlV15NSko5N8MslVSW62l499NMm2mtwgKlV1UFXdZZVNnZNJR0xN7o7+I1Pz/qOqDtpI/DM03d53Jzmuqu6YfPt6xDutcT3nJHlITa7/vG0mp+4lG9tnb0nymKo6cPjMrTa4no14aJJXdfftu3t7dx+R5JIkV2Tl9q3FSn3qpUmen+R93f2lGcS9jEbZN41NeyU350zfXNEY++Uox+b9xCiPjbFpr8Y4Pi2qUebmXoymX45tbNrvCkKZXNP3yqr6cE1Oqzoqyc4kpyV5c61wmlp3fzOTTvzsqvpAJtcErnbX9xdmclAvzOQa0Qszub40w7YurO/c5Gkevt3e7t6V5JFJTh/ifXeSVX8KcPD6JJcl+VCSlyR5T5IrN7jPXprkU5nsmw8kefgG17MRJ+X6FerXZ3Lzr+u1b43rvDDJtVX1gap6fJJ09/lJvprk5bMIekmNtW8am1YmN+dP37y+MfbLsY7N+4OxHhtj08rGOD4tqrHm5krG1C9HNTZV955nnJFM7uCe5KDu/kZV/eckZyW503Cwl0pVHTxcK3nrJO9Nclx3f27ecc3KLNtXVYdlcvrgDw3XyrKFlr1vbsQyjU1yc7ksS9/UL1dnbF5cjs31LcvYlBif9mfLnJv65cYsyti0X95DaB+5aSY/K3dQJtf3/fb++Idjjd5UVbfI5OZoz1iWwWnKTNpXVY9I8swkf7jsA9QCWfa+uRHLNDbJzeWyLH1Tv1ydsXlxOTbXtyxjU2J82p8tc27qlxuzEGOTM4QAAAAARmZ/vIcQAAAAAJugIAQAAAAwMgpCAAAAACOjIAQAAAAwMgpCAAAAACOjIAQAAAAwMv8fBoI5ef8KY38AAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li>From this initial countplot, it is difficult to observe any strategy in the first pick apart from the usual observation in favoring int-type as support heroes. Teams usually pick non-core (support) heroes first to save their core hereoes from being countered. </li>
 <li>Also, we can observe strength-type heroes being pcked early on in the game due to their resilience in oppenent counter-picking.</li>
 </ul>
@@ -14415,6 +14737,12 @@ Name: match_id, dtype: object</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4.3.2.-First-pick-heroes'-main-hero-per-TI">4.3.2. First pick heroes' main hero per TI<a class="anchor-link" href="#4.3.2.-First-pick-heroes'-main-hero-per-TI">&#182;</a></h4>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -14442,10 +14770,28 @@ Name: match_id, dtype: object</pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li><p>We can observe that most first picked heroes are those with crowd control and attribute-increasing (buff) skills that can fit in most type of team strategies.</p>
 </li>
 <li><p>The heroes which appear as top picks, in addition, have the best trade-offs between team fight relevance and in concealing the overall strategy a team plans to use.</p>
@@ -14457,41 +14803,14 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="B.-Predicting-Match-Outcomes-and-the-Top-Outcome-Predictors">B. Predicting Match Outcomes and the Top Outcome Predictors<a class="anchor-link" href="#B.-Predicting-Match-Outcomes-and-the-Top-Outcome-Predictors">&#182;</a></h3><p>One may ask, what wins a Dota 2 game? Considering the many factors that affects a games outcome, our team performed an analysis on the top predictors of TI outcomes using end-game data obtained from Steam's API. Specifically, we used a <code>Gradient Boosting Classifier</code> model to determine outcomes. We also explored using the following features and obtained the corresponding accuracies.</p>
-<p><strong>1. Items Only: ~83% Accuracy</strong><br>
+<h3 id="4.4.-Predicting-Match-Outcomes-and-the-Top-Outcome-Predictors">4.4. Predicting Match Outcomes and the Top Outcome Predictors<a class="anchor-link" href="#4.4.-Predicting-Match-Outcomes-and-the-Top-Outcome-Predictors">&#182;</a></h3><p>One may ask, what wins a Dota 2 game? Considering the many factors that affects a games outcome, our team performed an analysis on the top predictors of TI outcomes using end-game data obtained from Steam's API. Specifically, we used a <code>Gradient Boosting Classifier</code> model to determine outcomes. We also explored using the following features and obtained the corresponding accuracies.</p>
+<blockquote><p><strong>1. Items Only: ~83% Accuracy</strong><br>
 <strong>2. All available end-game data: ~94 Accuracy</strong></p>
+</blockquote>
 <p>Presented below is our analysis and details regarding the features used.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">match_players</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM match_players&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">match_players</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dota_items</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * from items&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn</span><span class="p">)</span>
-<span class="n">dota_items</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -14518,17 +14837,149 @@ Name: match_id, dtype: object</pre>
 <span class="n">full_matches</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">full_matches</span><span class="p">[[</span><span class="s1">&#39;item_0&#39;</span><span class="p">,</span> <span class="s1">&#39;item_1&#39;</span><span class="p">,</span> <span class="s1">&#39;item_2&#39;</span><span class="p">,</span> <span class="s1">&#39;item_3&#39;</span><span class="p">,</span> <span class="s1">&#39;item_4&#39;</span><span class="p">,</span> <span class="s1">&#39;item_5&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">full_matches</span><span class="p">[</span><span class="s1">&#39;radiant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">full_matches</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;player_slot&#39;</span><span class="p">]</span> <span class="o">&lt;=</span><span class="mi">100</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">full_matches</span><span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">~</span><span class="p">((</span><span class="n">full_matches</span><span class="p">[</span><span class="s1">&#39;radiant&#39;</span><span class="p">])</span> <span class="o">^</span> <span class="p">(</span><span class="n">full_matches</span><span class="p">[</span><span class="s1">&#39;radiant_win&#39;</span><span class="p">]))</span>
-<span class="n">full_matches</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">full_matches</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>league_id</th>
+      <th>name_x</th>
+      <th>match_id</th>
+      <th>radiant_win</th>
+      <th>account_id</th>
+      <th>player_slot</th>
+      <th>hero_id</th>
+      <th>item_0</th>
+      <th>item_1</th>
+      <th>item_2</th>
+      <th>...</th>
+      <th>last_hits</th>
+      <th>denies</th>
+      <th>gold_per_min</th>
+      <th>xp_per_min</th>
+      <th>level</th>
+      <th>additional_units</th>
+      <th>hero_name</th>
+      <th>items</th>
+      <th>radiant</th>
+      <th>win</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>65001</td>
+      <td>#DOTA_Item_The_International_2012</td>
+      <td>37633163</td>
+      <td>True</td>
+      <td>82327674</td>
+      <td>0</td>
+      <td>90</td>
+      <td>214</td>
+      <td>46</td>
+      <td>61</td>
+      <td>...</td>
+      <td>123</td>
+      <td>0</td>
+      <td>241</td>
+      <td>281</td>
+      <td>17</td>
+      <td>NaN</td>
+      <td>keeper of the light</td>
+      <td>[214, 46, 61, 42, 24, 102]</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65001</td>
+      <td>#DOTA_Item_The_International_2012</td>
+      <td>37578738</td>
+      <td>True</td>
+      <td>87278757</td>
+      <td>128</td>
+      <td>90</td>
+      <td>43</td>
+      <td>214</td>
+      <td>36</td>
+      <td>...</td>
+      <td>61</td>
+      <td>2</td>
+      <td>201</td>
+      <td>198</td>
+      <td>11</td>
+      <td>NaN</td>
+      <td>keeper of the light</td>
+      <td>[43, 214, 36, 73, 37, 23]</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65001</td>
+      <td>#DOTA_Item_The_International_2012</td>
+      <td>37086655</td>
+      <td>True</td>
+      <td>85805514</td>
+      <td>131</td>
+      <td>90</td>
+      <td>102</td>
+      <td>37</td>
+      <td>11</td>
+      <td>...</td>
+      <td>69</td>
+      <td>1</td>
+      <td>239</td>
+      <td>231</td>
+      <td>10</td>
+      <td>NaN</td>
+      <td>keeper of the light</td>
+      <td>[102, 37, 11, 214, 16, 0]</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 31 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.-Features-Used:-Items-Only">1. Features Used: Items Only<a class="anchor-link" href="#1.-Features-Used:-Items-Only">&#182;</a></h4><p>Prior to building our predictive model we aggregated team data per match. Additionally, we performed one-hot encoding for categorical features of the data. In these section, features used are only the items used by each team per match. See below codes and dataframe for the the result of this preprocessing.</p>
+<h4 id="4.4.1.-Features-Used:-Items-Only">4.4.1. Features Used: Items Only<a class="anchor-link" href="#4.4.1.-Features-Used:-Items-Only">&#182;</a></h4><p>Prior to building our predictive model we aggregated team data per match. Additionally, we performed one-hot encoding for categorical features of the data. In these section, features used are only the items used by each team per match. See below codes and dataframe for the the result of this preprocessing.</p>
 
 </div>
 </div>
@@ -14567,6 +15018,215 @@ Name: match_id, dtype: object</pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>win</th>
+      <th>item_1</th>
+      <th>item_2</th>
+      <th>item_3</th>
+      <th>item_4</th>
+      <th>item_5</th>
+      <th>item_6</th>
+      <th>item_7</th>
+      <th>item_8</th>
+      <th>item_9</th>
+      <th>...</th>
+      <th>item_257</th>
+      <th>item_258</th>
+      <th>item_259</th>
+      <th>item_260</th>
+      <th>item_262</th>
+      <th>item_263</th>
+      <th>item_265</th>
+      <th>item_266</th>
+      <th>item_267</th>
+      <th>item_1029</th>
+    </tr>
+    <tr>
+      <th>match_id</th>
+      <th>radiant</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">36030092</th>
+      <th>False</th>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>True</th>
+      <td>1.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">36035663</th>
+      <th>False</th>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>True</th>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>36036525</th>
+      <th>False</th>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 192 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -14603,26 +15263,29 @@ Name: match_id, dtype: object</pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>train score:  0.9613233923578751
+test score: 0.8337988826815642
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">gbr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dota_items</span><span class="p">[</span><span class="n">dota_items</span><span class="o">.</span><span class="n">item_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">])]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">gbr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]];</span>
+<span class="n">dota_items</span><span class="p">[</span><span class="n">dota_items</span><span class="o">.</span><span class="n">item_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">42</span><span class="p">])];</span>
 </pre></div>
 
     </div>
@@ -14632,7 +15295,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><p>Along with the success of building a predictive model in knowing match outcomes, the following insights surfaced:</p>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><p>Along with the success of building a predictive model in knowing match outcomes, the following insights surfaced:</p>
 <ul>
 <li>Top outcome predictors are the items shown in the dataframe above. We can observe that most of these items (<code>observer wards</code>, <code>dust</code>, <code>gem</code>) relate to map awareness, map vision, and team fights. </li>
 <li>Intuitively, you can't win games without <code>boots</code>, an item which improves mobility that is useful in all aspects of the game--from team fights down to the farming in the laning stage.</li>
@@ -14644,7 +15307,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="2.-Features-used:-Items-and-End-of-game-Player-Stats">2. Features used: Items and End-of-game Player Stats<a class="anchor-link" href="#2.-Features-used:-Items-and-End-of-game-Player-Stats">&#182;</a></h4>
+<h4 id="4.4.2.-Features-used:-Items-and-End-of-game-Player-Stats">4.4.2. Features used: Items and End-of-game Player Stats<a class="anchor-link" href="#4.4.2.-Features-used:-Items-and-End-of-game-Player-Stats">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14654,19 +15317,7 @@ Name: match_id, dtype: object</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kills&#39;</span><span class="p">,</span> <span class="s1">&#39;deaths&#39;</span><span class="p">,</span> <span class="s1">&#39;assists&#39;</span><span class="p">,</span> <span class="s1">&#39;last_hits&#39;</span><span class="p">,</span> <span class="s1">&#39;denies&#39;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span> <span class="o">=</span> <span class="n">full_matches</span><span class="p">[[</span><span class="s1">&#39;match_id&#39;</span><span class="p">,</span> <span class="s1">&#39;radiant&#39;</span><span class="p">,</span> <span class="s1">&#39;win&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stats_cols</span><span class="p">]</span>
+<span class="n">combined_df</span> <span class="o">=</span> <span class="n">full_matches</span><span class="p">[[</span><span class="s1">&#39;match_id&#39;</span><span class="p">,</span> <span class="s1">&#39;radiant&#39;</span><span class="p">,</span> <span class="s1">&#39;win&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">stats_cols</span><span class="p">]</span>
 
 <span class="n">item_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">full_matches</span><span class="p">[</span><span class="n">items_cols</span><span class="p">]</span><span class="o">.</span><span class="n">stack</span><span class="p">())</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">item_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">item_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
@@ -14723,20 +15374,8 @@ Name: match_id, dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">gbr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dota_items</span><span class="p">[</span><span class="n">dota_items</span><span class="o">.</span><span class="n">item_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">139</span><span class="p">])</span> <span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">gbr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]];</span>
+<span class="n">dota_items</span><span class="p">[</span><span class="n">dota_items</span><span class="o">.</span><span class="n">item_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">139</span><span class="p">])</span> <span class="p">];</span>
 </pre></div>
 
     </div>
@@ -14746,7 +15385,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li>While pushing and destroying enemy buildings eventaully lead a team to breaking an opponent's <code>Ancient</code>, it is through <code>Kills</code> that teams are able to push effectively, turning the odds to their favor. Our predictive model supports this, putting <code>Kills</code> on the <strong>top rank</strong> as predictor of match outcomes.</li>
 <li>Additionally, we can see late-game items such as <code>travel boots</code> and <code>butterfly</code> to be deterministic of match outcomes. <code>Travel boots</code> allows flexibility in split pushing, which increases map presence. Also, <code>butterfly</code> signals that safelane-carry agility heroes are successful in their roles of farming up for the late-game eventually securing wins for the team.</li>
 </ul>
@@ -14756,7 +15395,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="C.-End-of-game-Stats'-Statistical-Significance-to-TI-Evolution">C. End-of-game Stats' Statistical Significance to TI Evolution<a class="anchor-link" href="#C.-End-of-game-Stats'-Statistical-Significance-to-TI-Evolution">&#182;</a></h3><p>In order to detemine how TI meta has changed from TI4 and TI8, we also looked into the end-of-game stats of each player and the distributions of these stats. In addition, we performed Null Hyptohesis Significance Testing to determine if the differences in distributions resulting from Dota 2 updates are statistcally significant. The details are as follows.</p>
+<h3 id="4.5.-End-of-game-Stats'-Statistical-Significance-to-TI-Evolution">4.5. End-of-game Stats' Statistical Significance to TI Evolution<a class="anchor-link" href="#4.5.-End-of-game-Stats'-Statistical-Significance-to-TI-Evolution">&#182;</a></h3><p>In order to detemine how TI meta has changed from TI4 and TI8, we also looked into the end-of-game stats of each player and the distributions of these stats. In addition, we performed Null Hyptohesis Significance Testing to determine if the differences in distributions resulting from Dota 2 updates are statistcally significant. The details are as follows.</p>
 
 </div>
 </div>
@@ -14766,7 +15405,7 @@ Name: match_id, dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///dota2.sqlite3&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///src/dota2.sqlite3&quot;</span>
 <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39; ORDER BY name;&quot;</span>
 <span class="n">hero_id</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * from heroes;&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 <span class="n">match_details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM match_details;&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
@@ -14828,7 +15467,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="1.-The-Poisson-Distribution-and-Rare-IMBA-Endgame-Stats">1. The Poisson Distribution and Rare IMBA Endgame Stats<a class="anchor-link" href="#1.-The-Poisson-Distribution-and-Rare-IMBA-Endgame-Stats">&#182;</a></h4>
+<h4 id="4.5.1.-The-Poisson-Distribution-and-Rare-IMBA-Endgame-Stats">4.5.1. The Poisson Distribution and Rare IMBA Endgame Stats<a class="anchor-link" href="#4.5.1.-The-Poisson-Distribution-and-Rare-IMBA-Endgame-Stats">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14893,7 +15532,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li><p>Most endgame stats, specifically gpm, xpm, kills, deaths, and assists <strong>resemble a Poisson distribution</strong> from visual inspection. We can observe that the distributions are generally skewed to the right. Thus, we can consider high values for these end-of-game stats as <strong>rare events</strong>. This is primarily explained by the fact that in TI, a team can "tap-out" of a game by calling  "good game, well played".</p>
 </li>
 <li><p>Additionally, Poisson distribution of stats are also <strong>due to players taking clearly defined roles in a team strategy</strong> where most roles function as support heroes (characterized by lower stats to favor snowballing of the fewer in proportion carry-heroes (usually 1 or 2 per team). Therefore high--also known in the Philippine gaming linggo as <strong>"IMBA"--stats are significantly outnumbered by support hero stats</strong> in our data set since we included the stats of all five player roles per team per match.</p>
@@ -14909,13 +15548,12 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="2.-Testing-TI8's-End-game-Stats-Difference-with-Null-Hypothesis-Significance-Testing">2. Testing TI8's End-game Stats Difference with Null Hypothesis Significance Testing<a class="anchor-link" href="#2.-Testing-TI8's-End-game-Stats-Difference-with-Null-Hypothesis-Significance-Testing">&#182;</a></h4><p>While eyeballing the end-game stats distribution (KDE) plots of the different TIs may give an idea how they compare with each other, the above plots do not tell the statistical significance of the differences or similarities.</p>
+<h4 id="4.5.2.-Testing-TI8's-End-game-Stats-Difference-with-Null-Hypothesis-Significance-Testing">4.5.2. Testing TI8's End-game Stats Difference with Null Hypothesis Significance Testing<a class="anchor-link" href="#4.5.2.-Testing-TI8's-End-game-Stats-Difference-with-Null-Hypothesis-Significance-Testing">&#182;</a></h4><p>While eyeballing the end-game stats distribution (KDE) plots of the different TIs may give an idea how they compare with each other, the above plots do not tell the statistical significance of the differences or similarities.</p>
 <p>One of the differences shown from the above plots is how TI8 had a slightly more spread out distribution of end-game experience and gold per minute results. To verify if the observed difference is indeed statistically significant, we conducted a Null Hypothesis Significance Testing (NHST) on the mean differences of end-game stats available from the Steam API.</p>
 <p>In the NHST below, we calculated for the probability of observing mean differences in end-game stats that is equal or greater than the actual mean differences observed from the pairwise comparison of TI8 with the other TIs.</p>
 <p>To do so we defined our hypothesis as follows:</p>
 <p><strong>Hypothesis (Null):</strong> All of the TI's end-game per player stats, specifically  experience per minute(xpm), gold per minute gpm), kills (K), deaths (D), assists (A), last-hits, and denies, are identically distributed with TI8's end-game per player stats.</p>
 <p><strong>Test statistic:</strong> Mean difference of each end-of-game stat.</p>
-<h4 id="Defining-the-functions-used">Defining the functions used<a class="anchor-link" href="#Defining-the-functions-used">&#182;</a></h4><p>The following are the functions used to perform the NHST. Definitions of each function are indicated in the contained docstrings</p>
 
 </div>
 </div>
@@ -14925,7 +15563,8 @@ Name: match_id, dtype: object</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bootstrap_replicate_1d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#### Defining the functions used</span>
+<span class="k">def</span> <span class="nf">bootstrap_replicate_1d</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generate bootstrap replicate of 1D data.&quot;&quot;&quot;</span>
     <span class="n">bs_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">bs_sample</span><span class="p">)</span>
@@ -15047,7 +15686,7 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Section-Insights">Section Insights<a class="anchor-link" href="#Section-Insights">&#182;</a></h4><ul>
+<h5 id="Insights:">Insights:<a class="anchor-link" href="#Insights:">&#182;</a></h5><ul>
 <li>From the resulting in the dataframe above, we can observe that under the null hypothesis ONLY the the mean difference in "last_hit" stats between TI7 and TI8 is shown to be statistically significant at a 95% confidence interval. Statistically, the mean differences in end-game stats from TI4 to TI8 are generally insignificant given by the results. This <strong>TI7 last_hit pvalue of 0.4419</strong> may be attributed to <strong>IMBA outliers</strong> such as that of the 1970 last hits in a game by <code>Resolut1on</code> in their game against <code>IG.V</code>. <sup><a href="https://www.youtube.com/watch?v=h1JVcX9DSaQ">[5]</a></sup></li>
 </ul>
 <ul>
@@ -15059,25 +15698,26 @@ Name: match_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="VI.-Conclusion-and-Recommendations">VI. Conclusion and Recommendations<a class="anchor-link" href="#VI.-Conclusion-and-Recommendations">&#182;</a></h2><p>End-of-game stats made it possible for us to predict match outcomes and surface the top predictors to these outcomes. We also observed from our data the trends in hero selection according to the primary attribute. However, we recommend that a thorough analysis be done on a possible time-series data set with more specific information about what happened throughout a match with the corresponding timestamp. An investigation in this direction allows one to see in-game stats progression and team strategies and play style.</p>
+<h2 id="5.-Conclusion-and-Recommendations">5. Conclusion and Recommendations<a class="anchor-link" href="#5.-Conclusion-and-Recommendations">&#182;</a></h2><p>End-of-game stats made it possible for us to predict match outcomes and surface the top predictors to these outcomes. We also observed from our data the trends in hero selection according to the primary attribute. However, we recommend that a thorough analysis be done on a possible time-series data set with more specific information about what happened throughout a match with the corresponding timestamp. An investigation in this direction allows one to see in-game stats progression and team strategies and play style.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>[1]  2018. Opinion — it’s time for Dota 2 to lower the barrier to entry. [Blog] Available at: <a href="https://www.joindota.com/en/news/78006-opinion-its-time-for-dota-2-to-lower-the-barrier-to-entry">https://www.joindota.com/en/news/78006-opinion-its-time-for-dota-2-to-lower-the-barrier-to-entry</a> [Accessed August 2020].</p>
+<h2 id="6.-References">6. References<a class="anchor-link" href="#6.-References">&#182;</a></h2><p>[1]  2018. Opinion — it’s time for Dota 2 to lower the barrier to entry. [Blog] Available at: <a href="https://www.joindota.com/en/news/78006-opinion-its-time-for-dota-2-to-lower-the-barrier-to-entry">https://www.joindota.com/en/news/78006-opinion-its-time-for-dota-2-to-lower-the-barrier-to-entry</a> [Accessed August 2020].</p>
 <p>[2] Statista. 2020. Number Of Games Released On Steam 2019 | Statista. [online] Available at: <a href="https://www.statista.com/statistics/552623/number-games-released-steam/">https://www.statista.com/statistics/552623/number-games-released-steam/</a> [Accessed 1 August 2020].</p>
 <p>[3] Steamcommunity.com. 2020. Steam Community :: Steam Web API Documentation. [online] Available at: <a href="https://steamcommunity.com/dev">https://steamcommunity.com/dev</a> [Accessed 1 August 2020].</p>
 <p>[4] Dota2.com. 2020. Dota 2 - 7.00 - New Gameplay. [online] Available at: <a href="https://www.dota2.com/700/gameplay">https://www.dota2.com/700/gameplay</a> [Accessed 1 August 2020].</p>
 <p>[5] 2020. [online] Available at: <a href="https://www.youtube.com/watch?v=h1JVcX9DSaQ">https://www.youtube.com/watch?v=h1JVcX9DSaQ</a> [Accessed 1 August 2020].</p>
+<p>[6] Photo <a href="https://estnn.com/dota-2-the-international-10-collectors-cache-is-here/">https://estnn.com/dota-2-the-international-10-collectors-cache-is-here/</a></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2>
+<h2 id="7.-Appendix">7. Appendix<a class="anchor-link" href="#7.-Appendix">&#182;</a></h2>
 </div>
 </div>
 </div>
